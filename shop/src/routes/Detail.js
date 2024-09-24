@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { Nav } from "react-bootstrap";
 import "../App.css";
-import userEvent from '@testing-library/user-event';
+import { 재고Context } from '../App.js';
 
 // let Box = styled.div`
 //     padding : 20px;
@@ -54,39 +54,42 @@ function Detail (props) {
         }
     },[])
 
-    return (
-        <div className={'container start '+fade2}>
-            <div className="row">
-                <div className="col-md-6">
-                    <img src="/shoe1.png" width="100%"></img>
-                </div>
-                <div className="col-md-6 mt-4">
-                    <h4 className="pt-5">{myItem.title}</h4>
-                    <p>{myItem.content}</p>
-                    <p>{myItem.price} 원</p>
-                    <button className="btn btn-danger">주문하기</button>
-                </div>
-                <div>
-                    {/* <Box>
-                        <YelloBtn bg="orange" onClick={() => {setCount.apply(count+1)}}>오렌지버튼</YelloBtn>
-                        <YelloBtn bg="blue">파란버튼</YelloBtn>
-                        <YelloBtn bg="yellow" id="ye">d</YelloBtn>
-                    </Box> */}
-                    <Nav variant="tabs" defaultActiveKey="link0">
-                        <Nav.Item>
-                            <Nav.Link onClick={()=>{탭변경(0)}} eventKey="link0">버튼 0</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link onClick={()=>{탭변경(1)}} eventKey="link1">버튼 1</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link onClick={()=>{탭변경(2)}} eventKey="link2">버튼 2</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                    <TabContent 탭={탭}/>
-                </div>
-            </div>
-        </div>
-    )
+    let {재고} = useContext(재고Context)
+
+  return (
+  <div className={'container start '+fade2}>
+    <div>{재고}</div>
+    <div className="row">
+      <div className="col-md-6">
+        <img src="/shoe1.png" width="100%"></img>
+      </div>
+      <div className="col-md-6 mt-4">
+        <h4 className="pt-5">{myItem.title}</h4>
+        <p>{myItem.content}</p>
+        <p>{myItem.price} 원</p>
+        <button className="btn btn-danger">주문하기</button>
+      </div>
+      <div>
+        {/* <Box>
+            <YelloBtn bg="orange" onClick={() => {setCount.apply(count+1)}}>오렌지버튼</YelloBtn>
+            <YelloBtn bg="blue">파란버튼</YelloBtn>
+            <YelloBtn bg="yellow" id="ye">d</YelloBtn>
+        </Box> */}
+        <Nav variant="tabs" defaultActiveKey="link0">
+            <Nav.Item>
+                <Nav.Link onClick={()=>{탭변경(0)}} eventKey="link0">버튼 0</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link onClick={()=>{탭변경(1)}} eventKey="link1">버튼 1</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link onClick={()=>{탭변경(2)}} eventKey="link2">버튼 2</Nav.Link>
+            </Nav.Item>
+        </Nav>
+        <TabContent 탭={탭}/>
+      </div>
+    </div>
+  </div>
+  )
 }
 export default Detail;
