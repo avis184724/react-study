@@ -102,23 +102,23 @@ function Card(props) {
 }
 
 function WatchedItems(){
-  let [WatchedItems, setWatchedItems] = useState([]);
+  // let [WatchedItems, setWatchedItems] = useState([]);
 
-  useEffect(() => {
-    let watched = JSON.parse(localStorage.getItem('watched'));
-    setWatchedItems(watched);
-  }, [])
+  // useEffect(() => {
+  //   let watched = JSON.parse(localStorage.getItem('watched'));
+  //   setWatchedItems(watched);
+  // }, [])
 
-  return (
-    <div>
-      <h4>최근 본 항목</h4>
-      <ul>
-        {WatchedItems.map((id, index) => (
-          <li key={index}>상품 ID : {id}</li>
-        ))}
-      </ul>
-    </div>
-  )
+  // return (
+  //   <div>
+  //     <h4>최근 본 항목</h4>
+  //     <ul>
+  //       {WatchedItems.map((id, index) => (
+  //         <li key={index}>상품 ID : {id}</li>
+  //       ))}
+  //     </ul>
+  //   </div>
+  // )
 }
 export default App;
 
