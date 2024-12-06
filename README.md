@@ -73,5 +73,3 @@ http://localhost:3000
   - Redux Toolkit
   - localStorage
   - react-query
-    
-
